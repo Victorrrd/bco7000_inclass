@@ -9,8 +9,48 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+```{r}
+library(tidyverse)
+library(janitor)
+#janitor::clean_names   this allow us to jsut load the package we need
+
+avocado<-read_csv("avocado.csv")
+
+avocado%>%head()
+
+avocado<-avocado%>%
+  janitor::clean_names()
+
+```
+
 # data wrangling
 
 **WOW**
-testest
-testeer
+we did `filter`
+
+`arrange` for sorting variables
+
+```{r}
+avocado%>%
+  arrange(average_price)%>%
+  head()
+```
+
+lets change the order
+
+```{r}
+avocado%>%
+  arrange(desc(average_price))%>%
+  head()
+```
+
+lets `select`
+
+```{r}
+dim(avocado)
+
+avocado_short<-avocado%>%
+  select(date, average_price,total_volume)
+```
+
