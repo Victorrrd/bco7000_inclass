@@ -1,7 +1,7 @@
 ---
-title: "Session 4"
+title: "Session 4.1"
 author: "Victor Rodriguez-Rey"
-date: "14/05/2021"
+date: "22/05/2021"
 output: html_document
 ---
 
@@ -9,60 +9,4 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
-```{r}
-library(tidyverse)
-library(janitor)
-#janitor::clean_names   this allow us to jsut load the package we need
-
-avocado<-read_csv("avocado.csv")
-
-avocado%>%head()
-
-avocado<-avocado%>%
-  janitor::clean_names()
-
-```
-
-# data wrangling
-
-**WOW**
-we did `filter`
-
-`arrange` for sorting variables
-
-```{r}
-avocado%>%
-  arrange(average_price)%>%
-  head()
-```
-
-lets change the order
-
-```{r}
-avocado%>%
-  arrange(desc(average_price))%>%
-  head()
-```
-
-lets `select`
-
-```{r}
-dim(avocado)
-
-avocado_short<-avocado%>%
-  select(date, average_price,total_volume)
-```
-
-```{r}
-data(mpg)
-mpg%>%head()
-```
-
-```{r}
-ggplot(mpg, 
-       aes(model,
-           manufacturer)
-       )+ geom_point()
-```
-
+#data wrangling
