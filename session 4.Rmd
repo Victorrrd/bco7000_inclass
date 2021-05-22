@@ -54,3 +54,15 @@ avocado_short<-avocado%>%
   select(date, average_price,total_volume)
 ```
 
+```{r}
+data(mpg)
+mpg%>%head()
+```
+
+```{r}
+ggplot(mpg, 
+       aes(model,
+           manufacturer)
+       )+ geom_point()
+```
+
